@@ -93,7 +93,7 @@
         <div class="header">
             <h2>Faculity Login</h2>
         </div>
-        <form action="" method="post">
+        <form action="{% url 'edit' %}" method="post">
             {% csrf_token %}
             <label for="email">Anits Mail:</label>
             <input type="email" name="email" id="email">

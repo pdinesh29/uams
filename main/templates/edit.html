@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uams</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+        }
+        .container {
+            display: flex;
+        }
+        .left-nav {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #ffffff;
+            color: #000000;
+            transition: left 0.3s ease-in-out;
+            padding-top: 60px;
+        }
+        .left-nav.active {
+            left: 0;
+        }
+        .left-nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .left-nav li {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .left-nav li a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            display: block;
+        }
+
+        .left-nav li a:hover {
+            background-color: #ffffff;
+        }
+        .toggle-btn {
+            color: rgb(0, 0, 0);
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+        main {
+            margin-left: 250px;
+            padding: 20px;
+            transition: margin-left 0.3s ease-in-out;
+        }
+        .container.active-main {
+            margin-left: 0;
+        }
+        @media screen and (max-width: 768px) {
+            .left-nav {
+                width: 200px;
+            }
+
+            .toggle-btn {
+                top: 10px;
+                left: 10px;
+            }
+
+            main {
+                margin-left: 0;
+                margin-top: 20px;
+            }
+
+            .container.active-main {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="left-nav" id="leftNav">
+            <div class="toggle-btn" id="toggleBtn">
+                <span>&#9776;</span>
+            </div>
+            <ul>
+                { for i in nums}
+                  <li><a onclick="">{{i}}</a></li>
+                {endfor}
+            </ul>
+        </nav>
+        <main id="mainContent">
+            <h1>Welcome to Uams</h1>
+            <p>Select an option from the navigation bar to view the content.</p>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('toggleBtn').addEventListener('click', function() {
+            document.getElementById('leftNav').classList.toggle('active');
+            document.querySelector('.container').classList.toggle('active-main');
+        });
+        
+    </script>
+</body>
+</html>
