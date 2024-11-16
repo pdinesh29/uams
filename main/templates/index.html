@@ -103,12 +103,12 @@
         <form action="{% url 'home' %}" method="post">
             {% csrf_token %}
             <label for="email">Anits Mail:</label>
-            <input type="email" name="email" id="email" required autocomplete="off">
+            <input type="email" name="email" id="email" required autocomplete="off" value="">
             <br>
             <label for="pass">Password:</label>
-            <input type="password" name="pass" id="pass" required autocomplete="off">
+            <input type="password" name="pass" id="pass" required autocomplete="off" value="">
             <br>
-            {% if wrong %}
+            {% if request.session.wrongp %}
             <p>Wrong Username or Password</p>
             {% endif %}
             <button type="submit">Login</button>
