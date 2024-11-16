@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button in Top-Right Corner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;  /* Ensure full viewport height */
+            position: relative; /* Make the body the reference for positioning */
+            background-color: #f4f7fc;
+        }
+
+        .btn {
+            position: absolute; /* Position the button absolutely */
+            top: 20px;          /* Distance from the top edge */
+            right: 20px;        /* Distance from the right edge */
+            padding: 10px 20px;
+            background-color: #ff5e57;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #e14a42;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn">Click Me</button>
+</body>
+</html>

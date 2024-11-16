@@ -3,7 +3,6 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.urls import reverse
 from .models import *
 def login(request):
-
     if 'id' in request.session:
         return redirect(reverse("home"))
     else:
@@ -20,6 +19,7 @@ def home(request):
             request.session["wrongp"]=False
             return  redirect('login')
         else:
+            print(request.session['id'])
             faculty=Faculty.objects.get(id=request.session['id'])
             return render(request, "home.html", {
                     "nums": Alloted.objects.filter(faculty=faculty),
@@ -30,7 +30,6 @@ def home(request):
         try:
             faculty = Faculty.objects.get(email=email,password=password)
             request.session['id']=faculty.id
-            print(request.session['id'])
             return render(request, "home.html", {
                     "nums": Alloted.objects.filter(faculty=faculty),
                 })
@@ -38,3 +37,10 @@ def home(request):
             request.session['wrongp']=True
             return redirect('login')
     return redirect('login')
+def logout(request):
+    request.session.flush()
+    return redirect('home')
+def modifyy(request):
+    return render(request,'modifyy.html')
+def createe(request):
+    return render(request,'createe.html')

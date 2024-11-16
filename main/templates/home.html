@@ -14,6 +14,8 @@
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             overflow-x: hidden;
+            height: 100vh;
+            position: relative;
         }
         .container {
             display: flex;
@@ -68,6 +70,24 @@
         .container.active-main {
             margin-left: 0;
         }
+        .btn {
+            position: absolute; 
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #ff5e57;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #e14a42;
+        }
         @media screen and (max-width: 768px) {
             .left-nav {
                 width: 200px;
@@ -106,7 +126,19 @@
             <p>Select an option from the navigation bar to view the content.</p>
         </main>
     </div>
-
+    <a href="{% url 'logout' %}" class="btn">logout</a>
+    <div class="modifybar">
+        {% block modifybar %}
+        {% endblock %}
+    </div>
+    <div class="creationbar">
+        {% block creationbar %}
+        {% endblock %}
+    </div>
+    <div class="sheet">
+        {% block sheet %}
+        {% endblock %}
+    </div>
     <script>
         document.getElementById('toggleBtn').addEventListener('click', function() {
             document.getElementById('leftNav').classList.toggle('active');
