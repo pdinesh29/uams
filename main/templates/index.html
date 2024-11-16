@@ -88,6 +88,11 @@
         p{
             color: #ff5e57;
         }
+        h2{
+            text-align: center;
+            padding-bottom: 30px;
+            
+        }
     </style>
 </head>
 <body>
@@ -95,13 +100,13 @@
         <div class="header">
             <h2>Faculity Login</h2>
         </div>
-        <form action="{% url 'edit' %}" method="post">
+        <form action="{% url 'home' %}" method="post">
             {% csrf_token %}
             <label for="email">Anits Mail:</label>
-            <input type="email" name="email" id="email" required>
+            <input type="email" name="email" id="email" required autocomplete="off">
             <br>
             <label for="pass">Password:</label>
-            <input type="password" name="pass" id="pass" required>
+            <input type="password" name="pass" id="pass" required autocomplete="off">
             <br>
             {% if wrong %}
             <p>Wrong Username or Password</p>
