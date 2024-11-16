@@ -85,7 +85,9 @@
                 font-size: 18px;
             }
         }
-
+        p{
+            color: #ff5e57;
+        }
     </style>
 </head>
 <body>
@@ -96,11 +98,14 @@
         <form action="{% url 'edit' %}" method="post">
             {% csrf_token %}
             <label for="email">Anits Mail:</label>
-            <input type="email" name="email" id="email">
+            <input type="email" name="email" id="email" required>
             <br>
             <label for="pass">Password:</label>
-            <input type="password" name="pass" id="pass">
+            <input type="password" name="pass" id="pass" required>
             <br>
+            {% if wrong %}
+            <p>Wrong Username or Password</p>
+            {% endif %}
             <button type="submit">Login</button>
         </form>
     </div>

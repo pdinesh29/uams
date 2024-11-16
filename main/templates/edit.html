@@ -96,9 +96,9 @@
                 <span>&#9776;</span>
             </div>
             <ul>
-                { for i in nums}
-                  <li><a onclick="">{{i}}</a></li>
-                {endfor}
+                {% for i in nums %}
+                  <li><a href="">{{i.subject}} ({{i.dept.year}} {{i.dept.dp_name}} - {{i.dept.section}})</a></li>
+                {% endfor %}
             </ul>
         </nav>
         <main id="mainContent">
